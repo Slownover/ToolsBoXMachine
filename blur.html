@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flouter une image</title>
+    <link rel="icon" href="./.assets/logo/fav.png" />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <a href="/" class="back-link">← Retour</a>
+    <h1>Flouter une Image</h1>
+    
+    <div class="tool-container">
+      <div class="controls">
+        <input type="file" id="image-upload" accept="image/png, image/jpeg, image/webp" class="btn" style="background:var(--card-border); color:white;"/>
+        <div class="mode-selector" style="display: flex; gap: 1rem; align-items: center; background: var(--card-bg); padding: 0.5rem 1rem; border: 1px solid var(--card-border); border-radius: 0.5rem;">
+          <label style="cursor: pointer; flex-direction: row; font-size: 1rem;">
+            <input type="radio" name="blurMode" value="brush" checked> Pinceau
+          </label>
+          <label style="cursor: pointer; flex-direction: row; font-size: 1rem;">
+            <input type="radio" name="blurMode" value="full"> Image Complète
+          </label>
+        </div>
+
+        <label id="brush-size-container">
+          Taille du pinceau (<span id="size-val">30</span>px)
+          <input type="range" id="brush-size" min="5" max="100" value="30">
+        </label>
+        
+        <label>
+          Intensité du flou (<span id="blur-val">10</span>px)
+          <input type="range" id="blur-intensity" min="1" max="50" value="10">
+        </label>
+        
+        <button class="btn" id="download-btn">Télécharger</button>
+      </div>
+
+      <div class="canvas-container">
+        <canvas id="blurry-canvas"></canvas>
+      </div>
+    </div>
+
+    <script type="module" src="/blur.js"></script>
+  </body>
+</html>
